@@ -1,0 +1,77 @@
+* Starting client
+* Connecting to master process on port 16410
+* Analyzing classpath: 
+  - C:\Users\Larry\Documents\Logan\Computer Science\CS362\Assignment_1\target\test-classes
+  - C:\Users\Larry\Documents\Logan\Computer Science\CS362\Assignment_1\target\classes
+  - C:\Users\Larry\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar
+* Finished analyzing classpath
+* Generating tests for class com.CS362.app.App
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 80
+  - Branch 44
+  - Exception 0
+  - MutationFactory 671
+  - Output 6
+  - Method 7
+  - MethodNoException 7
+  - CBranchFitnessFactory 44
+* Using seed 1492474217588
+* Starting evolution
+* Search finished after 68s and 0 generations, 1084 statements, best individual has fitness: 151.43984252605097
+* Writing sequences to pool
+* Minimizing test suite
+[MASTER] 17:11:44.104 [pool-2-thread-1] WARN  TestSuiteMinimizer - Minimization timeout. Roll back to original test suite
+[MASTER] 17:11:44.107 [pool-2-thread-1] WARN  TimeController - Phase MINIMIZATION lasted too long, 1 seconds more than allowed.
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 78%
+* Total number of goals: 80
+* Number of covered goals: 62
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 82%
+* Total number of goals: 44
+* Number of covered goals: 36
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 14
+* Number of covered goals: 14
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 84%
+* Total number of goals: 671
+* Number of covered goals: 564
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 0%
+* Total number of goals: 6
+* Number of covered goals: 0
+* Coverage analysis for criterion METHOD
+* Coverage of criterion METHOD: 100%
+* Total number of goals: 7
+* Number of covered goals: 7
+* Coverage analysis for criterion METHODNOEXCEPTION
+* Coverage of criterion METHODNOEXCEPTION: 57%
+* Total number of goals: 7
+* Number of covered goals: 4
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 82%
+* Total number of goals: 44
+* Number of covered goals: 36
+* Generated 18 tests with total length 193
+* Resulting test suite's coverage: 56% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 0%
+* Compiling and checking tests
+[MASTER] 17:11:54.568 [pool-2-thread-1] WARN  TimeController - Phase ASSERTION_GENERATION lasted too long, 1 seconds more than allowed.
+* Writing JUnit test case 'App_ESTest' to C:\Users\Larry\Documents\Logan\Computer Science\CS362\Assignment_1\.evosuite\tmp_2017_04_17_17_10_13\tests
+[MASTER] 17:12:07.390 [pool-2-thread-1] WARN  TestSuiteWriter - Using cached result
+* Done!
+
