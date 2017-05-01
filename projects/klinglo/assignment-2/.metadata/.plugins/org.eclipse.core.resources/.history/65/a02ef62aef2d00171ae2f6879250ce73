@@ -1,0 +1,120 @@
+package edu.osu.cs362;
+/**
+ *  This class provides a basic set of test cases for the
+ *  TimeTable class.
+ */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+
+//import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class TimeTableTest {
+
+	 @Test
+	 public void test01()  throws Throwable  {
+			int hour = 13,
+				min = 30,
+				day = 1,
+				month = 11,
+				year = 2017;
+			LinkedList<Appt> myAppts = new LinkedList<Appt>();			
+			for(int i = 0; i < 10; i++){ //make ten appointments
+				myAppts.add(new Appt(hour, min, day, month, year, "Prostate Exam", "..."));
+				hour++; min++; day++;
+			}
+
+			TimeTable tt = new TimeTable();
+			GregorianCalendar firstDay = new GregorianCalendar(2017,1,1);
+			GregorianCalendar secondDay = new GregorianCalendar(2017, 10, 26); 
+			LinkedList<CalDay> calD = tt.getApptRange(myAppts, firstDay, secondDay);
+			assertEquals(298,calD.size()); //get the number of days in calD
+
+			secondDay = new GregorianCalendar(2017, 10, 27);
+			calD = tt.getApptRange(myAppts, firstDay, secondDay);		
+			assertEquals(299,calD.size());	//check that adding a day to the range correctly adds a day to the LinkedList returned
+
+			assertEquals(1,calD.getFirst().getSizeAppts()); //assert that there is one appointment that day
+			assertEquals(0,calD.get(15).getSizeAppts()); //assert that there is No appointment that day
+
+			myAppts = tt.deleteAppt(myAppts,calD.getFirst().getAppts().getFirst());
+			calD = tt.getApptRange(myAppts, firstDay, secondDay);
+			assertEquals(0,calD.getFirst().getSizeAppts()); //assert that there is one appointment that day		
+
+		
+		}
+
+		@Test
+		public void test02()  throws Throwable{
+			TimeTable tt = new TimeTable();
+			GregorianCalendar firstDay = new GregorianCalendar(2017,11,14);
+			GregorianCalendar secondDay = new GregorianCalendar(2017, 11, 15); 
+			Appt appt = new Appt(112,45,14,11,2017,"Jeremy","This is Jeremy");
+			CalDay cd = new CalDay(new GregorianCalendar());
+			cd.addAppt(appt);
+			tt.getApptRange(cd.getAppts(), firstDay, secondDay);
+		}
+
+		/*@Test
+		public void test03()  throws Throwable{
+			TimeTable tt = new TimeTable();
+			GregorianCalendar firstDay = new GregorianCalendar(2017,2,1);
+			GregorianCalendar secondDay = new GregorianCalendar(2017, 2, 2); 
+			LinkedList<Appt> myAppts = new LinkedList<Appt>();
+			Appt appt = new Appt(11,45,14,11,2017,"Jeremy","This is Jeremy");
+			myAppts.add(appt);
+			LinkedList<CalDay> calD = tt.getApptRange(myAppts, firstDay, secondDay);
+			for(int i = 0; i < calD.size(); i++){
+				assertEquals(0,calD.get(i).getAppts().size());
+			}
+		}
+
+		@Test
+		public void test04()  throws Throwable{
+			TimeTable tt = new TimeTable();
+			GregorianCalendar firstDay = new GregorianCalendar(2017,11,10);
+			GregorianCalendar secondDay = new GregorianCalendar(2017, 11, 12); 
+			LinkedList<Appt> myAppts = new LinkedList<Appt>();
+			Appt appt = new Appt(11,45,11,11,2017,"Jeremy","This is Jeremy");
+			myAppts.add(appt);
+			LinkedList<CalDay> calD = tt.getApptRange(myAppts, firstDay, secondDay);
+			assertEquals(1,calD.get(1).getAppts().size());
+		}
+
+		@Test
+		public void test05()  throws Throwable{
+			TimeTable tt = new TimeTable();
+			LinkedList<Appt> myAppts = new LinkedList<Appt>();
+			Appt appt = new Appt(11,45,2,2,2017,"Jeremy","This is Jeremy");
+			myAppts.add(appt);
+			assertNull(tt.deleteAppt(null, appt));
+		}
+
+		@Test
+		public void test06()  throws Throwable{
+			TimeTable tt = new TimeTable();
+			LinkedList<Appt> myAppts = new LinkedList<Appt>();
+			Appt appt = new Appt(11,45,2,2,2017,"Jeremy","This is Jeremy");
+			myAppts.add(appt);
+			Appt appt2 = new Appt(112,45,2,2,2017,"Jeremy","This is Jeremy");		
+			assertNull(tt.deleteAppt(myAppts, appt2));
+		}
+
+		@Test
+		public void test07()  throws Throwable{
+			TimeTable tt = new TimeTable();
+			LinkedList<Appt> myAppts = new LinkedList<Appt>();
+			Appt appt = new Appt(11,45,2,2,2017,"Jeremy","This is Jeremy");
+			myAppts.add(appt);
+			Appt appt2 = new Appt(12,45,2,2,2017,"Jeremy","This is Jeremy");		
+			assertNull(tt.deleteAppt(myAppts, appt2));
+		}*/
+}
