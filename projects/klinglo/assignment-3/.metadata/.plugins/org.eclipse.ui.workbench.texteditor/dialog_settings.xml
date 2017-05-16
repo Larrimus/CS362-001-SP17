@@ -2,28 +2,28 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="CalDay" key="selection"/>
+		<item value="startDay = 31" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Calday"/>
-			<item value="setApp"/>
-			<item value="getApptOccurences"/>
-			<item value="secondDay"/>
-			<item value="firstDay"/>
-			<item value="myAppts"/>
-			<item value="calendarDay"/>
-			<item value="&#x09; "/>
+			<item value="startDay = 31"/>
+			<item value="startMonth = 1,"/>
+			<item value="startHour = 23"/>
+			<item value="startHour = 0"/>
+			<item value="&#x09; +"/>
+			<item value=" +&#x09;"/>
+			<item value=" +&#x09; "/>
+			<item value=" +  "/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value="&#x09;"/>
 			<item value="secondDayCalendar"/>
 			<item value="firstDayCalendar"/>
 			<item value="appts"/>
 			<item value="calendarDayList"/>
-			<item value="&#x09;"/>
-			<item value=""/>
 			<item value=","/>
 			<item value="&#x09;&#x09;"/>
 		</list>

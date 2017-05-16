@@ -56,7 +56,6 @@ INDEX VERSION 1.130+C:\Users\Larry\Documents\Logan\Computer Science\CS362\CS362-
 1101215136.index
 2044866141.index
 1075874757.index
-2157099701.index
 3364597096.index
 926256401.index
 3234975208.index
@@ -81,7 +80,6 @@ INDEX VERSION 1.130+C:\Users\Larry\Documents\Logan\Computer Science\CS362\CS362-
 3027839619.index
 800604056.index
 3441014174.index
-1568390246.index
 44894449.index
 1969562871.index
 2977051953.index
