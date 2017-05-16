@@ -880,4 +880,3 @@
 2017-04-30 17:26:50,378 [Worker-146] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Larry\Documents\Logan\Computer Science\CS362\CS362-001-SP17\projects\aburasa\assignment-2\Calendar\src\main\resources
 2017-04-30 17:26:50,383 [Worker-146] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-04-30 17:26:50,388 [Worker-146] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Larry\Documents\Logan\Computer Science\CS362\CS362-001-SP17\projects\aburasa\assignment-2\Calendar\src\test\resources
-2017-05-01 15:27:13,933 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

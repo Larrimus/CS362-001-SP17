@@ -1,0 +1,183 @@
+package edu.osu.cs362;
+/**
+ *  This class provides a basic set of test cases for the
+ *  CalDay class.
+ */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class CalDayTest {
+
+	//Test the default constructor for the normal calendar (CalDay)
+	@Test
+	public void test01()  throws Throwable  {
+		CalDay calendarDay = new CalDay();
+		// Invalid before initialization
+		assertFalse(calendarDay.isValid());
+	}
+
+	//Test the constructor for the Gregorian Calendar (GregorianCalendar)
+    @Test
+    public void test02() {
+		GregorianCalendar calendar = new GregorianCalendar(2018, 6, 17);
+		CalDay calendarDay = new CalDay(calendar);
+
+		assertEquals(2018, calendarDay.year);
+		assertEquals(6, calendarDay.month);
+		assertEquals(17, calendarDay.day);
+    }
+
+    //Tests iterators through both calendar types
+    @Test
+	public void test03() {
+		int year = 2017,
+			month = 7,
+			day = 1;
+
+		GregorianCalendar calendar = new GregorianCalendar(year, month, day);
+		CalDay calendarDay = new CalDay(calendar);
+		Appt appointment1 = new Appt(6, 45, day, month, year, "Wake Up", null),
+			appointment2 = new Appt(22, 45, day, month, year, "Go to Sleep", null);
+
+		calendarDay.addAppt(appointment1);
+		calendarDay.addAppt(appointment2);
+
+		Iterator<?> apptsIterator = calendarDay.iterator();
+
+		// Appts from CalDay's iterator should match originals
+		assertEquals(appointment1, apptsIterator.next());
+		assertEquals(appointment2, apptsIterator.next());
+
+		// Try iterator with invalid CalDay
+		calendarDay = new CalDay();
+		assertEquals(null, calendarDay.iterator());
+	}
+
+    //Test calendarDay.getYear(), calendarDay.getMonth(), calendarDay.getDay()
+    @Test
+	public void test04() {
+    	int year = 2017,
+    		month = 5,
+    		day = 25;
+    	GregorianCalendar gregCalendar = new GregorianCalendar(year, month, day);
+    	CalDay calendarDay = new CalDay(gregCalendar);
+
+    	// Getters should match values used in construction
+    	assertEquals(year, calendarDay.getYear());
+    	assertEquals(month, calendarDay.getMonth());
+    	assertEquals(day, calendarDay.getDay());
+	}
+
+    //Test addAppt()
+    @Test
+	public void test05() {
+    	int year = 2017,
+    		month  = 8,
+    		day = 2;
+
+    	GregorianCalendar gregCalendar = new GregorianCalendar(year, month, day);
+    	CalDay calendarDay = new CalDay(gregCalendar);
+
+    	Appt appointment1 = new Appt(12,30, day, month, year, "First", null),
+			appointment2 = new Appt(14, 45, day, month, year, "Second", null),
+			invalidAppointment = new Appt(3000, 0, day, month, year, "Invalid", null);
+
+    	// Ensure appointments are valid
+    	assertTrue(appointment1.getValid());
+    	assertTrue(appointment2.getValid());
+    	assertFalse(invalidAppointment.getValid());
+
+    	// There are no existing Appts
+		assertEquals(0, calendarDay.getSizeAppts());
+
+    	// One appointment added
+		calendarDay.addAppt(appointment1);
+		assertEquals(appointment1, calendarDay.getAppts().getFirst());
+
+		// Two appointments added
+		calendarDay.addAppt(appointment2);
+		assertEquals(appointment2, calendarDay.getAppts().getLast());
+
+		// Adding invalid Appts should not affect CalDay size
+		int size = calendarDay.getSizeAppts();
+		calendarDay.addAppt(invalidAppointment);
+		assertEquals(size, calendarDay.getSizeAppts());
+	}
+
+
+    //Test toString()
+	@Test
+	public void test06() {
+		int year = 2017,
+			month  = 5,
+			day = 26;
+
+		GregorianCalendar gregCalendar = new GregorianCalendar(year, month, day);
+		CalDay calendarDay = new CalDay(gregCalendar);
+
+		Appt appointment1 = new Appt(18, 10, day, month, year, "Evening", null),
+			appointment2 = new Appt(7, 30, day, month, year, "Morning", null);
+
+		calendarDay.addAppt(appointment1);
+		calendarDay.addAppt(appointment2);
+
+		//Appointments added successfully
+		assertEquals(2, calendarDay.getSizeAppts());
+
+		// String is correct
+		assertEquals("\t --- 5/26/2017 --- \n" +
+				" --- -------- Appointments ------------ --- \n" +
+				"\t5/26/2017 at 7:30am ,Morning, \n" +
+				" \t5/26/2017 at 6:10pm ,Evening, \n" +
+				" \n",
+				calendarDay.toString());
+
+		// Invalid CalDay should print nothing
+		calendarDay.valid = false;
+		assertEquals("", calendarDay.toString());
+	}
+	@Test
+	 public void test011()  throws Throwable  {
+		 GregorianCalendar g = new GregorianCalendar();
+		 CalDay cal = new CalDay();
+		 cal.iterator();
+		 cal.toString();
+
+//		 According to the test, the new LinkedList is an empty list rather than null
+//		 LinkedList<String> isNULL = new LinkedList<String>();
+//		 assertEquals(isNULL, null);
+//
+
+		 Appt appt0 = new Appt(100, 30 , 10 , 4 , 2017 ,
+				 "Birthday Party", "This is my birthday party.");
+		 Appt appt1 = new Appt(13, 30 , 10 , 4 , 2017 ,
+				 "Birthday Party", "This is my birthday party.");
+		 Appt appt2 = new Appt(10, 30 , 10 , 4 , 2017 ,
+				 "Pay tuition", "I have to make a payment for spring term");
+		 assertFalse(cal.isValid());
+
+		 cal = new CalDay(g);
+		 cal.iterator();
+
+		 String test = cal.getSizeAppts() + " ";
+		 System.out.println(test + " here");
+
+		 System.out.println(cal.getDay() + " here");			//day:	28
+		 System.out.println(cal.getMonth() + " here");		//month: 3
+		 System.out.println(cal.getYear() + " here");		//year: 2017
+
+		 cal.addAppt(appt0);
+		 cal.addAppt(appt1);
+		 cal.addAppt(appt2);
+		 cal.iterator();
+
+
+		 cal.toString();
+	}
+}
