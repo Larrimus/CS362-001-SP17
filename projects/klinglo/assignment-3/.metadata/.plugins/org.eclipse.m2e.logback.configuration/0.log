@@ -1745,3 +1745,4 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated 
 2017-05-15 22:24:24,416 [Worker-2242] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Larry\Documents\Logan\Computer Science\CS362\CS362-001-SP17\projects\klinglo\assignment-3\Calendar\src\main\resources
 2017-05-15 22:24:24,427 [Worker-2242] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-05-15 22:24:24,438 [Worker-2242] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Larry\Documents\Logan\Computer Science\CS362\CS362-001-SP17\projects\klinglo\assignment-3\Calendar\src\test\resources
+2017-05-18 12:38:46,179 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
